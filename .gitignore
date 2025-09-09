@@ -3,13 +3,13 @@ client/node_modules
 client/build
 
 # === BACKEND (Node/Express) ===
-Server/node_modules
-Server/dist
+server/node_modules
+server/dist
 
 # === ENV FILES ===
 *.env
 client/.env
-Server/.env
+server/.env
 
 # === LOG FILES ===
 npm-debug.log*
