@@ -6,6 +6,8 @@ import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
@@ -47,11 +49,13 @@ export default function Header() {
           </a>
         </li>
       </ul>
-      <i className="fa-solid fa-xmark nav_close" id="nav-close" />
+    <FontAwesomeIcon icon={faXmark} id="nav-close" />
+     
     </div>
     <div className="nav_btns">
       <div className="nav_toggle" id="nav-toggle">
-        <i className="fa-solid fa-bars" />
+        <FontAwesomeIcon icon={faBars} />
+       
       </div>
     </div>
   </nav>
