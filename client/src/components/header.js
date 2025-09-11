@@ -14,6 +14,15 @@ export default function Header() {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    // Toggle menu (hamburger click)
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+    const closeMenu = () => {    // close menu whenever any menu button clicked 
+    setIsOpen(false);
+  };
+
   return (
 
    <header className="header" id="header">
@@ -24,32 +33,32 @@ export default function Header() {
     <div className={`nav_menu ${isOpen ? "show-menu" : ""}`} id="nav-menu" >
       <ul className="nav_list grid">
         <li className="nav_item">
-          <a href="#home" className="nav_link">
+          <a href="#home" onClick={closeMenu} className="nav_link">
         <FontAwesomeIcon icon={faHouse} />  Home
           </a>
         </li>
         <li className="nav_item">
-          <a href="#about" className="nav_link">
+          <a href="#about" onClick={closeMenu} className="nav_link">
             <FontAwesomeIcon icon={faUser} /> About
           </a>
         </li>
         <li className="nav_item">
-          <a href="#skills" className="nav_link">
+          <a href="#skills" onClick={closeMenu} className="nav_link">
            <FontAwesomeIcon icon={faFileLines} /> Skills
           </a>
         </li>
         <li className="nav_item">
-          <a href="#services" className="nav_link">
+          <a href="#services" onClick={closeMenu} className="nav_link">
            <FontAwesomeIcon icon={faBriefcase} /> Services
           </a>
         </li>
         <li className="nav_item">
-          <a href="#portfolio" className="nav_link">
+          <a href="#portfolio" onClick={closeMenu} className="nav_link">
            <FontAwesomeIcon icon={faImage} />Portfolio
           </a>
         </li>
         <li className="nav_item">
-          <a href="#contact" className="nav_link">
+          <a href="#contact" onClick={closeMenu} className="nav_link">
            <FontAwesomeIcon icon={faMessage} /> Contactme
           </a>
         </li>
@@ -58,7 +67,7 @@ export default function Header() {
      
     </div>
     <div className="nav_btns">
-      <div className="nav_toggle" id="nav-toggle" onClick={() => setIsOpen(true)}>
+      <div className="nav_toggle" id="nav-toggle" onClick={toggleMenu}>
         <FontAwesomeIcon icon={faBars} />
        
       </div>
