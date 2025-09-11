@@ -566,11 +566,12 @@ margin-left: var(--mb-0-25);
   transform: translate(6px, -7px);
 }
 
-.qualification [data-content]{
+.qualification_content {
   display: none;
 }
 
-.qualification_active[data-content]{
+
+.qualification_content.qualification_active {
   display: block;
 }
 

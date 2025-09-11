@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap, faAward } from "@fortawesome/free-solid-svg-icons";
 
 export default function Qualification() {
+
+     const [activeTab, setActiveTab] = useState("education"); // default tab
   return (
     //   {/*==================== QUALIFICATION ====================*/}
   <section className="qualification section">
@@ -11,18 +13,25 @@ export default function Qualification() {
     <span className="section_subtitle">My personal journey</span>
     <div className="qualification_container container">
       <div className="qualification_tabs">
-        <div
-          className="qualification_button button--flex qualification_active"
-          data-target="#education"
-        >
+
+       <div className={`qualification_button button--flex ${
+    activeTab === "education" ? "qualification_active" : ""
+  }`}
+  onClick={() => setActiveTab("education")}
+>
+
             <FontAwesomeIcon icon={faGraduationCap} className='qualification_icon' />
           
           Education
         </div>
-        <div
-          className="qualification_button button--flex "
-          data-target="#certificates"
-        >
+
+       <div
+  className={`qualification_button button--flex ${
+    activeTab === "certificates" ? "qualification_active" : ""
+  }`}
+  onClick={() => setActiveTab("certificates")}
+>
+
             <FontAwesomeIcon icon={faAward} className='qualification_icon' />
        
           Certificates
@@ -30,11 +39,13 @@ export default function Qualification() {
       </div>
       <div className="qualification_section">
         {/*==================== QUALIFICATION Content 1 ====================*/}
-        <div
-          className="qualification_content qualification_active"
-          data-content=""
-          id="education"
-        >
+       <div
+  className={`qualification_content ${
+    activeTab === "education" ? "qualification_active" : ""
+  }`}
+  id="education"
+>
+
           {/*==================== QUALIFICATION 1 ====================*/}
           <div className="qualification_data">
             <div>
@@ -84,10 +95,12 @@ export default function Qualification() {
        
                {/*==================== QUALIFICATION Content 2 ====================*/}
         <div
-          className="qualification_content"
-          data-content=""
-          id="certificates"
-        >
+  className={`qualification_content ${
+    activeTab === "certificates" ? "qualification_active" : ""
+  }`}
+  id="certificates"
+>
+
           {/*==================== QUALIFICATION 1 ====================*/}
           <div className="qualification_data">
             <div>
