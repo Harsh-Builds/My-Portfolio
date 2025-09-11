@@ -1,9 +1,21 @@
 import React from 'react'
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faAngleDown, faServer, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Skills() {
+
+    const [activeIndex, setActiveIndex] = useState(0); // 0 = Frontend open by default
+
+    const toggleAccordion = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null); // close if already open
+    } else {
+      setActiveIndex(index);
+    }
+  };
+  
   return (
     <section className="skills section" id="skills">
   <h2 className="section_title">Skills</h2>
@@ -11,8 +23,11 @@ export default function Skills() {
   <div className="skills_container container grid">
     <div>
       {/*==================== SKILLS 1 ====================*/}
-      <div className="skills_content skills_open">
-        <div className="skills_header">
+      <div  className={`skills_content ${
+              activeIndex === 0 ? "skills_open" : "skills_close"
+            }`}>
+
+        <div className="skills_header" onClick={() => toggleAccordion(0)} >
             <FontAwesomeIcon icon={faCode} className='skills_icon' />
        
           <div>
@@ -63,8 +78,10 @@ export default function Skills() {
 
       
       {/*==================== SKILLS 2 ====================*/}
-      <div className="skills_content skills_close">
-        <div className="skills_header">
+      <div className={`skills_content ${
+              activeIndex === 1 ? "skills_open" : "skills_close"
+            }`}>
+        <div className="skills_header" onClick={() => toggleAccordion(1)} >
             <FontAwesomeIcon icon={faServer} className='skills_icon' />
 
           <div>
@@ -104,8 +121,11 @@ export default function Skills() {
         </div>
       </div>
 
-  <div className="skills_content skills_close">
-        <div className="skills_header">
+  <div className={`skills_content ${
+              activeIndex === 2 ? "skills_open" : "skills_close"
+            }`}>
+
+        <div className="skills_header" onClick={() => toggleAccordion(2)}>
             <FontAwesomeIcon icon={faScrewdriverWrench} className='skills_icon'/>
          
           <div>
