@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function About() {
   return (
@@ -32,6 +35,17 @@ export default function About() {
             Internships <br /> completed
           </sapn>
         </div>
+
+      </div>
+        <div className="about_buttons">
+        <a
+          download=""
+          href="/pdf\Harsh Saini Resume.pdf"
+          className="button button--flex"
+        >
+          Download Resume
+         <FontAwesomeIcon icon={faDownload} />
+        </a>
       </div>
     
     </div>
