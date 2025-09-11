@@ -3,6 +3,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Qualification from "./components/Qualification";
+import Portfolio from "./components/Portfolio";
+
 import "./portfolio.css";
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
         <About />
         <Skills />
         <Qualification />
+        <Portfolio />
     </div>
  
 
