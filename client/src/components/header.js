@@ -8,15 +8,20 @@ import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 export default function Header() {
+
+    const [isOpen, setIsOpen] = useState(false);
+
   return (
+
    <header className="header" id="header">
   <nav className="nav container">
     <a href="#" className="nav_logo">
       HARSH
     </a>
-    <div className="nav_menu" id="nav-menu">
+    <div className={`nav_menu ${isOpen ? "show-menu" : ""}`} id="nav-menu" >
       <ul className="nav_list grid">
         <li className="nav_item">
           <a href="#home" className="nav_link">
@@ -49,11 +54,11 @@ export default function Header() {
           </a>
         </li>
       </ul>
-    <FontAwesomeIcon icon={faXmark} id="nav-close" />
+    <FontAwesomeIcon icon={faXmark} className=' nav_close' id="nav-close" onClick={() => setIsOpen(false)} />
      
     </div>
     <div className="nav_btns">
-      <div className="nav_toggle" id="nav-toggle">
+      <div className="nav_toggle" id="nav-toggle" onClick={() => setIsOpen(true)}>
         <FontAwesomeIcon icon={faBars} />
        
       </div>
