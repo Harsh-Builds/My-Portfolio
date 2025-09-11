@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope, faLocationDot, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact() {
   // form state
@@ -45,7 +47,8 @@ export default function Contact() {
         {/* Contact Info */}
         <div>
           <div className="contact_information">
-            <i className="fa-solid fa-phone contact-icon"></i>
+            <FontAwesomeIcon icon={faPhone} className="contact-icon"/>
+          
             <div>
               <h3 className="contact_title">Call Me</h3>
               <span className="contact_subtitle">+91 9917569572</span>
@@ -53,7 +56,8 @@ export default function Contact() {
           </div>
 
           <div className="contact_information">
-            <i className="fa-solid fa-envelope contact-icon"></i>
+            <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+         
             <div>
               <h3 className="contact_title">E-mail</h3>
               <span className="contact_subtitle">
@@ -63,7 +67,8 @@ export default function Contact() {
           </div>
 
           <div className="contact_information">
-            <i className="fa-solid fa-location-dot contact-icon"></i>
+            <FontAwesomeIcon icon={faLocationDot} className="contact-icon"/>
+            
             <div>
               <h3 className="contact_title">Location</h3>
               <span className="contact_subtitle">
@@ -116,7 +121,7 @@ export default function Contact() {
           <div>
             <button type="submit" className="button button--flex">
               Send Message
-              <i className="fa-solid fa-paper-plane button_icon"></i>
+             <FontAwesomeIcon icon={faPaperPlane} className="contact-icon" />
             </button>
           </div>
         </form>
