@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode, faAngleDown, faServer } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Skills() {
   return (
@@ -10,12 +13,13 @@ export default function Skills() {
       {/*==================== SKILLS 1 ====================*/}
       <div className="skills_content skills_open">
         <div className="skills_header">
-          <i className="fa-solid fa-code skills_icon" />
+            <FontAwesomeIcon icon={faCode} className='skills_icon' />
+       
           <div>
             <h1 className="skills_title">Frontend </h1>
             <span className="skills_subtitle">More than 2 years </span>
           </div>
-          <i className="fa-solid fa-angle-down skills_arrow" />
+          <FontAwesomeIcon icon={faAngleDown} className='skills_arrow' />
         </div>
         <div className="skills_list grid">
           <div className="skills_data">
@@ -52,6 +56,49 @@ export default function Skills() {
             </div>
             <div className="skills_bar">
               <span className="skills_percentage skills_react" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      {/*==================== SKILLS 2 ====================*/}
+      <div className="skills_content skills_close">
+        <div className="skills_header">
+            <FontAwesomeIcon icon={faServer} className='skills_icon' />
+
+          <div>
+            <h1 className="skills_title">Backend </h1>
+            <span className="skills_subtitle">More than 2 years </span>
+          </div>
+              <FontAwesomeIcon icon={faAngleDown} className='skills_arrow' />
+        </div>
+        <div className="skills_list grid">
+          <div className="skills_data">
+            <div className="skills_title">
+              <h3 className="skills_name">Node js</h3>
+              <span className="skills_number">90%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_nodejs" />
+            </div>
+          </div>
+          <div className="skills_data">
+            <div className="skills_title">
+              <h3 className="skills_name">MongoDB</h3>
+              <span className="skills_number">70%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_mongodb" />
+            </div>
+          </div>
+          <div className="skills_data">
+            <div className="skills_title">
+              <h3 className="skills_name">Python</h3>
+              <span className="skills_number">55%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_python" />
             </div>
           </div>
         </div>
