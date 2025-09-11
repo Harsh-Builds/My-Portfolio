@@ -578,3 +578,92 @@ margin-left: var(--mb-0-25);
 .qualification_button.qualification_active{
   color: var(--first-color);
 } 
+
+/*==================== PORTFOLIO ====================*/
+ .portfolio_container{
+  overflow: initial;
+}
+
+.portfolio_content{
+  padding: 0 1.5rem;
+}
+
+.portfolio_img{
+  width: 265px;
+  border-radius: .5rem;
+  justify-self: center;
+}
+
+.portfolio_title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+
+.portfolio_description{
+  margin-bottom: var(--mb-0-75);
+}
+
+
+
+.portfolio_button:hover .button_icon{
+  transform: translateX(.25rem);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+  content: '';
+}
+
+.swiper-portfolio-icon{
+  font-size: 2rem;
+  color: var(--first-color);
+ 
+} 
+
+/* 1. Make swiper container relative */
+ .portfolio_container {
+  position: relative;
+} 
+
+/* 2. Position arrows absolutely */
+  .swiper-button-prev,
+.swiper-button-next {
+  position: absolute; 
+  /* top: 42%; vertically centered */
+   transform: translateY(-50%);
+  z-index: 10;
+  font-size: 2rem;
+  color: var(--first-color);
+  cursor: pointer;
+}  
+
+/* 3. Set left/right positioning */
+ .swiper-button-prev {
+  left: -0.4rem;
+} 
+
+ .swiper-button-next {
+  right: -0.4rem;
+} 
+
+/* Inactive bullets */
+ .swiper-pagination-bullet {
+  background-color: #ccc;  /* Light grey or use any custom color */
+   opacity: 1; 
+ } 
+
+/* Active bullet */
+ .swiper-pagination-bullet-active {
+  background-color: var(--first-color); /* Match your theme color */
+ } 
+ .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+} 
+/* Move pagination below swiper */
+.swiper-pagination {
+  position: static;
+  margin-top: 1rem;
+  text-align: center;
+} 

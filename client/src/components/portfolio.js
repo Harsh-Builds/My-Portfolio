@@ -7,6 +7,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+
 export default function Portfolio() {
 useEffect(() => {
     // Initialize Swiper with your config
@@ -53,7 +56,8 @@ useEffect(() => {
                   className="button button--flex button--small portfolio_button"
                 >
                   Live Demo
-                  <i className="fa-solid fa-arrow-right button_icon" />
+                  <FontAwesomeIcon icon={faArrowRight} className="button_icon"/>
+                  
                 </a>
               </div>
             </div>
@@ -78,7 +82,8 @@ useEffect(() => {
                   className="button button--flex button--small portfolio_button"
                 >
                   Live Demo
-                  <i className="fa-solid fa-arrow-right button_icon" />
+                   <FontAwesomeIcon icon={faArrowRight} className="button_icon"/>
+                 
                 </a>
               </div>
             </div>
@@ -86,10 +91,12 @@ useEffect(() => {
 
           {/* Arrows */}
           <div className="swiper-button-next">
-            <i className="fa-solid fa-angle-right swiper-portfolio-icon" />
+            <FontAwesomeIcon icon={faAngleRight} className="swiper-portfolio-icon" />
+    
           </div>
           <div className="swiper-button-prev">
-            <i className="fa-solid fa-angle-left swiper-portfolio-icon" />
+            <FontAwesomeIcon icon={faAngleLeft} className="swiper-portfolio-icon" />
+           
           </div>
 
           {/* Pagination */}
