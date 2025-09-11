@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faAngleDown, faServer } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faAngleDown, faServer, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Skills() {
@@ -104,6 +104,46 @@ export default function Skills() {
         </div>
       </div>
 
+  <div className="skills_content skills_close">
+        <div className="skills_header">
+            <FontAwesomeIcon icon={faScrewdriverWrench} className='skills_icon'/>
+         
+          <div>
+            <h1 className="skills_title">Tools</h1>
+            <span className="skills_subtitle">More than 2 years </span>
+          </div>
+           <FontAwesomeIcon icon={faAngleDown} className='skills_arrow' />
+        </div>
+        <div className="skills_list grid">
+          <div className="skills_data">
+            <div className="skills_title">
+              <h3 className="skills_name">VS Code</h3>
+              <span className="skills_number">80%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_vscode" />
+            </div>
+          </div>
+          <div className="skills_data">
+            <div className="skills_title">
+              <h3 className="skills_name">Git</h3>
+              <span className="skills_number">50%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_git" />
+            </div>
+          </div>
+          <div className="skills_data">
+            <div className="skills_title">
+              <h3 className="skills_name">GitHub</h3>
+              <span className="skills_number">70%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_github" />
+            </div>
+          </div>
+          </div>
+         </div>
     </div>
   </div>
 </section>
