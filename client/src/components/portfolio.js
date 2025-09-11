@@ -58,10 +58,42 @@ useEffect(() => {
               </div>
             </div>
 
-           </div>
+            {/*==================== PORTFOLIO 2 ====================*/}
+            <div className="portfolio_content grid swiper-slide">
+              <img
+                src="/images/portfolio1.jpg"
+                alt="Portfolio Website Project"
+                className="portfolio_img"
+              />
+              <div className="portfolio_data">
+                <h3 className="portfolio_title">Personal Portfolio Website</h3>
+                <p className="portfolio_description">
+                  A fully responsive and interactive personal portfolio website
+                  designed and developed from scratch using HTML, CSS, and
+                  JavaScript. It includes sections like About Me, Skills,
+                  Services, Projects, Contact, and Qualifications.
+                </p>
+                <a
+                  href="#"
+                  className="button button--flex button--small portfolio_button"
+                >
+                  Live Demo
+                  <i className="fa-solid fa-arrow-right button_icon" />
+                </a>
+              </div>
+            </div>
+          </div>
 
-         
-         
+          {/* Arrows */}
+          <div className="swiper-button-next">
+            <i className="fa-solid fa-angle-right swiper-portfolio-icon" />
+          </div>
+          <div className="swiper-button-prev">
+            <i className="fa-solid fa-angle-left swiper-portfolio-icon" />
+          </div>
+
+          {/* Pagination */}
+          <div className="swiper-pagination"></div>
         </div>
       </section>
     </>
