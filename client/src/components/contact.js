@@ -73,6 +73,53 @@ export default function Contact() {
           </div>
         </div>
 
+        {/* Contact Form */}
+        <form className="contact_form grid" onSubmit={handleSubmit}>
+          <div className="contact_inputs grid">
+            <div className="contact_content">
+              <label className="contact_label">Name</label>
+              <input
+                type="text"
+                name="name"
+                className="contact_input"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="contact_content">
+              <label className="contact_label">Email</label>
+              <input
+                type="email"
+                name="email"
+                className="contact_input"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="contact_content">
+            <label className="contact_label">Message</label>
+            <textarea
+              name="message"
+              className="contact_input"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+
+          <div>
+            <button type="submit" className="button button--flex">
+              Send Message
+              <i className="fa-solid fa-paper-plane button_icon"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );
