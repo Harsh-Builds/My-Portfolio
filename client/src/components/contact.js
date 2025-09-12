@@ -1,44 +1,13 @@
-import React, { useState } from "react";
+import React from 'react'
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faLocationDot, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
-export default function Contact() {
-  // form state
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
-  // handle change
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  // handle submit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:3000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        alert("Failed to send message");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
-    }
-  };
-
-  return (
+    
+    export default function Contact() {
+      return (
+     
     <section className="contact section" id="contact">
       <h2 className="section_title">Contact Me</h2>
       <span className="section_subtitle">Get in touch</span>
@@ -79,7 +48,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <form className="contact_form grid" onSubmit={handleSubmit}>
+        <form className="contact_form grid" >
           <div className="contact_inputs grid">
             <div className="contact_content">
               <label className="contact_label">Name</label>
@@ -87,8 +56,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 className="contact_input"
-                value={formData.name}
-                onChange={handleChange}
+              
                 required
               />
             </div>
@@ -99,8 +67,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 className="contact_input"
-                value={formData.email}
-                onChange={handleChange}
+               
                 required
               />
             </div>
@@ -112,8 +79,7 @@ export default function Contact() {
               name="message"
               className="contact_input"
               rows="5"
-              value={formData.message}
-              onChange={handleChange}
+             
               required
             ></textarea>
           </div>
@@ -127,5 +93,8 @@ export default function Contact() {
         </form>
       </div>
     </section>
-  );
-}
+  
+  
+      )
+    }
+    
