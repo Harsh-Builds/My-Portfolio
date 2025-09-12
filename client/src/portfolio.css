@@ -998,3 +998,40 @@ textarea.contact_input {
   margin-top: 4.5rem;
 }
 }
+
+/* for large devices */
+@media screen and (min-width:1024px) {
+  .header,
+  .main,
+  .footer_container{
+    padding: 0;
+  }
+  .home_blob{
+    width: 320px;
+  }
+  .home_social{
+    transform: translateX(-6rem);
+  }
+  .portfolio_content{
+    order: 1;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+  }
+
+  .swiper-portfolio-icon{
+    font-size: 3.5rem;
+  }
+  .swiper-button-prev{
+    left: -3.5rem;
+  }
+  .swiper-button-next{
+    right: -3.5rem;
+  }
+  .contact_form{
+    width: 460px;
+  }
+
+  .contact_input{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -67,7 +67,7 @@ export default function Home() {
           technologies. I build complete, responsive web applications from
           concept to deployment
         </p>
-        <a href="#Contactme" className="button button--flex">
+        <a href="#contact" className="button button--flex">
           Contact Me <FontAwesomeIcon icon={faMessage} className='button_icon' />
         </a>
       </div>
