@@ -15,7 +15,12 @@ const personSchema = mongoose.Schema({
   message : {
     type: String,
     required: true
-  }
+  },
+
+  createdAt: {              // auto save time and date
+    type: Date, 
+    default: Date.now 
+}
 });
 
 

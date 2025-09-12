@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');  //here we import the mongoose library.
-
+require('dotenv').config();
 
 //Define the mongodb connection URL
-const mongoURL = 'mongodb://127.0.0.1:27017/myPortfolio';
+// const mongoURL = 'mongodb://127.0.0.1:27017/myPortfolio';
+const mongoURL = process.env.MONGODB_URL;  //we use this to get that URL from .env file SO, our atlas string/url stays sequred.
 
 mongoose.connect(mongoURL, {
     // useNewUrlParser : true,     // these both are just mandatory parameter to prevent future problems during database connection.
