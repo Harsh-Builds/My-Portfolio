@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');  //here we import the mongoose library.
-require('dotenv').config();  // we need to import dotenv also here so we can process it.
+
 
 //Define the mongodb connection URL
 const mongoURL = 'mongodb://127.0.0.1:27017/myPortfolio';
