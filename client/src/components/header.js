@@ -33,33 +33,29 @@ export default function Header() {
     <div className={`nav_menu ${isOpen ? "show-menu" : ""}`} id="nav-menu" >
       <ul className="nav_list grid">
         <li className="nav_item">
-          <a href="#home" onClick={closeMenu} className="nav_link">
-        <FontAwesomeIcon icon={faHouse} />  Home
+          <a href="#home" onClick={closeMenu} className="nav_link ">
+        <FontAwesomeIcon icon={faHouse} className='nav_icon' />  Home
           </a>
         </li>
         <li className="nav_item">
           <a href="#about" onClick={closeMenu} className="nav_link">
-            <FontAwesomeIcon icon={faUser} /> About
+            <FontAwesomeIcon icon={faUser} className='nav_icon' /> About
           </a>
         </li>
         <li className="nav_item">
           <a href="#skills" onClick={closeMenu} className="nav_link">
-           <FontAwesomeIcon icon={faFileLines} /> Skills
+           <FontAwesomeIcon icon={faFileLines}className='nav_icon' /> Skills
           </a>
         </li>
-        <li className="nav_item">
-          <a href="#services" onClick={closeMenu} className="nav_link">
-           <FontAwesomeIcon icon={faBriefcase} /> Services
-          </a>
-        </li>
+       
         <li className="nav_item">
           <a href="#portfolio" onClick={closeMenu} className="nav_link">
-           <FontAwesomeIcon icon={faImage} />Portfolio
+           <FontAwesomeIcon icon={faImage} className='nav_icon'/>Portfolio
           </a>
         </li>
         <li className="nav_item">
           <a href="#contact" onClick={closeMenu} className="nav_link">
-           <FontAwesomeIcon icon={faMessage} /> Contactme
+           <FontAwesomeIcon icon={faMessage}className='nav_icon' /> Contactme
           </a>
         </li>
       </ul>
