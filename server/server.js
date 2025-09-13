@@ -28,6 +28,6 @@ app.use('/contact', personRoutes);
 
 
 // server is active or listen at this port or address.
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log('server iss live');
 })

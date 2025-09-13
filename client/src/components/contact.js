@@ -25,7 +25,7 @@ import { useForm } from "react-hook-form"
         const onSubmit = async (data) => {
 
   try {
-    let r = await fetch("http://localhost:3000/contact", {
+    let r = await fetch("https://my-portfolio-2-oft1.onrender.com/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
