@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json()) // req.body :- store here 'req.body' after converting data in jsObject.
 app.use(bodyParser.urlencoded({ extended: true })); // handles form-data
 
+const PORT = process.env.PORT || 3000
 
 
 // app.get('/', (req, res) => {
