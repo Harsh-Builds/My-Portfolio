@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
-import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -71,5 +70,5 @@ export default function Header() {
   </nav>
 </header>
 
-  )
+  );
 }
