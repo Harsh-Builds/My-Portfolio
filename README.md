@@ -60,16 +60,16 @@ This portfolio website is a modern, fully functional **MERN stack application** 
 ## ⚙️ How to Run the Project Locally
 
 ### Frontend
-```bash
-cd client
-npm install
-npm start
+
+- cd client
+- npm install
+- npm start
 
 ### Backend
-cd server
-npm install
+- cd server
+- npm install
 # Create a .env file with your MongoDB URI and PORT
-npm run server
+- npm run server
 
 
 ## 🧩 Challenges Faced & Solutions
@@ -88,7 +88,7 @@ Solution: Used `.env` for credentials and Mongoose schemas.
 ## 🖼️ Screenshots of Application UI
 
 **🏠 Home Page:**  
-[home](image.png) 
+![home](image.png) 
 
 **👤 About Section:**  
 ![About](image-1.png)
@@ -100,7 +100,7 @@ Solution: Used `.env` for credentials and Mongoose schemas.
 ![contact](image-3.png)
 
 **On Mobile view**
-![Mobile view]](image-4.png)
+![Mobile view](image-4.png)
 ---
 
 ---
