@@ -35,7 +35,7 @@ import { useForm } from "react-hook-form"
       throw new Error("Failed to submit form");
     }
 
-    let res = await r.text();
+    let res = await r.json();
     console.log(data, res);
 
     reset(); //  clear form after successful submission
