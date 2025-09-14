@@ -61,15 +61,15 @@ This portfolio website is a modern, fully functional **MERN stack application** 
 
 ### Frontend
 
-<<<<<<< HEAD
+
 - cd client
 - npm install
 - npm start
-=======
+
 cd client
 npm install
 npm start
->>>>>>> 9d04f058fb3410cf79d8fa03b9185c085e7b2f8e
+
 
 ### Backend
 - cd server
