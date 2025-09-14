@@ -61,9 +61,15 @@ This portfolio website is a modern, fully functional **MERN stack application** 
 
 ### Frontend
 
+<<<<<<< HEAD
 - cd client
 - npm install
 - npm start
+=======
+cd client
+npm install
+npm start
+>>>>>>> 9d04f058fb3410cf79d8fa03b9185c085e7b2f8e
 
 ### Backend
 - cd server
@@ -71,6 +77,7 @@ This portfolio website is a modern, fully functional **MERN stack application** 
 # Create a .env file with your MongoDB URI and PORT
 - npm run server
 
+---
 
 ## 🧩 Challenges Faced & Solutions
 
@@ -100,7 +107,11 @@ Solution: Used `.env` for credentials and Mongoose schemas.
 ![contact](image-3.png)
 
 **On Mobile view**
+<<<<<<< HEAD
 ![Mobile view](image-4.png)
+=======
+![Mobileview]](image-4.png)
+>>>>>>> 9d04f058fb3410cf79d8fa03b9185c085e7b2f8e
 ---
 
 ---
@@ -118,3 +129,4 @@ Solution: Used `.env` for credentials and Mongoose schemas.
 - Smooth scrolling animations  
 - Mobile-friendly UI  
 - Fully functional API integration  
+---
