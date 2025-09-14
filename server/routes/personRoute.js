@@ -21,6 +21,10 @@ router.post('/', async (req, res) => {
 
   } catch (err) {
     
+    if (err.code === 11000) {
+  return res.status(409).json({ error: "Email already exists. Please use a different one." });
+}
+
       console.log(err);
       res.status(500).json({error : 'Internal server error'})
   }

@@ -30,19 +30,21 @@ import { useForm } from "react-hook-form"
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-
-    if (!r.ok) {
-      throw new Error("Failed to submit form");
-    }
-
+    
     let res = await r.json();
+
+    // r.ok false means backend returned error status (like 409)
+    if (!r.ok) {
+      throw new Error(res.error || "Failed to submit form");
+    }
+    
     console.log(data, res);
 
     reset(); //  clear form after successful submission
     alert(" Form submitted successfully!");
   } catch (error) {
     console.error("Error submitting form:", error);
-    alert(" Failed to submit form. Please try again.");
+    alert(error.message);  // the backend message (like "Email already exists. Please use a different one.")
   }
 };
 
