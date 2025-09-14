@@ -107,11 +107,9 @@ Solution: Used `.env` for credentials and Mongoose schemas.
 ![contact](image-3.png)
 
 **On Mobile view**
-<<<<<<< HEAD
+
 ![Mobile view](image-4.png)
-=======
-![Mobileview]](image-4.png)
->>>>>>> 9d04f058fb3410cf79d8fa03b9185c085e7b2f8e
+
 ---
 
 ---
