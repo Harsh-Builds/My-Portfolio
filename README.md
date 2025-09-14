@@ -112,6 +112,18 @@ Solution: Used `.env` for credentials and Mongoose schemas.
 
 ---
 
+**sample input and output**
+
+### API response to user after submit the form
+
+![form submit](image-6.png)
+
+### User data stored in Database
+
+![data stored](image-7.png)
+
+---
+
 ---
 
 ## ✨ Feature List
