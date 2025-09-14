@@ -5,11 +5,13 @@ require('dotenv').config();
 // const mongoURL = 'mongodb://127.0.0.1:27017/myPortfolio';
  const mongoURL = process.env.MONGODB_URL;  //we use this to get that URL from .env file SO, our atlas string/url stays sequred.
 
-mongoose.connect(mongoURL, {
-    // useNewUrlParser : true,     // these both are just mandatory parameter to prevent future problems during database connection.
-   //  useUnifiedTopology: true         // in this version they are not workable.
-    
-})
+ if (!mongoURL) {
+  console.error("❌ MONGODB_URL not defined in .env");
+  process.exit(1); // stop server if DB URL is missing
+}
+
+
+mongoose.connect(mongoURL)
 
 const theDB = mongoose.connection;
 
