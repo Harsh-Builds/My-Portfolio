@@ -7,7 +7,7 @@ const mongoURL = 'mongodb://127.0.0.1:27017/myPortfolio';
 
 mongoose.connect(mongoURL, {
     // useNewUrlParser : true,     // these both are just mandatory parameter to prevent future problems during database connection.
-    // useUnifiedTopology: true         // in this version they are not workable.
+   //  useUnifiedTopology: true         // in this version they are not workable.
     
 })
 
