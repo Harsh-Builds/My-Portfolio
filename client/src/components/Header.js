@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
+// import { faGraduationCap, faAward } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -44,6 +45,11 @@ export default function Header() {
         <li className="nav_item">
           <a href="#skills" onClick={closeMenu} className="nav_link">
            <FontAwesomeIcon icon={faFileLines}className='nav_icon' /> Skills
+          </a>
+        </li>
+        <li className="nav_item">
+          <a href="#qualification" onClick={closeMenu} className="nav_link">
+           <FontAwesomeIcon icon={faFileLines}className='nav_icon' /> Qualification
           </a>
         </li>
        
