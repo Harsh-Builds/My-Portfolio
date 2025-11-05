@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react'; // No longer needed here
 import '../AdminLogin.css'; 
-import axios from "axios";
+import api from '../api'; // <-- ADD THIS
+
 
 function AdminLogin({ onLoginSuccess }) {
   // 1. Add state for email, password, and any login errors
@@ -20,7 +21,7 @@ function AdminLogin({ onLoginSuccess }) {
 
     try {
       // 3. Send the email and password to your backend
-      const response = await axios.post('/admin', { 
+      const response = await api.post('/admin', { 
         email: email, 
         password: password 
       });

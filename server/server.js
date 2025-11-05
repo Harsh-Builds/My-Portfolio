@@ -6,7 +6,7 @@ const db = require('../server/db'); // connection to database
 require('dotenv').config();  // it is used for that, Node.js can load environment variables from  .env file into process.env.
 
 app.use(cors());
-// app.use(cors({ origin: 'https://my-portfoliothis.vercel.app' }));
+app.use(cors({ origin: 'https://my-portfoliothis.vercel.app' }));
 app.use(express.json());
 
 const bodyParser = require('body-parser');
