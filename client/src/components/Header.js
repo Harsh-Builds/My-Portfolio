@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -63,6 +64,13 @@ export default function Header() {
            <FontAwesomeIcon icon={faMessage}className='nav_icon' /> Contactme
           </a>
         </li>
+
+    <li className="nav_item">
+              <Link to="/admin" onClick={closeMenu} className="nav_link"> {/* <-- Change this path */}
+                <FontAwesomeIcon icon={faUser} className='nav_icon' /> Admin
+              </Link>
+            </li>
+    
       </ul>
     <FontAwesomeIcon icon={faXmark} className=' nav_close' id="nav-close" onClick={() => setIsOpen(false)} />
      
