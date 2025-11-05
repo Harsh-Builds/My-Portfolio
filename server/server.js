@@ -5,8 +5,12 @@ const cors = require('cors');
 const db = require('../server/db'); // connection to database
 require('dotenv').config();  // it is used for that, Node.js can load environment variables from  .env file into process.env.
 
-app.use(cors());
-app.use(cors({ origin: 'https://my-portfoliothis.vercel.app' }));
+// This replaces your second cors line
+app.use(cors({
+  origin: 'https://my-portfoliothis.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow POST
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 const bodyParser = require('body-parser');
