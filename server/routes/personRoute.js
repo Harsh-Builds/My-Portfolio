@@ -32,5 +32,31 @@ router.post('/', async (req, res) => {
 
 })
 
+// 2. --- ADD THIS NEW CODE BLOCK ---
+// 🔒 This is the NEW PROTECTED route to get all the data
+// It is protected by your jwtauthMiddleWare
+router.get('/data', jwtauthMiddleWare, async (req, res) => {
+  try {
+    // Check if the user's role (from the token) is 'admin'
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Forbidden: Only admins can access this data.' });
+    }
+    
+    // If they are an admin, find all contacts
+    // Use .sort({ createdAt: -1 }) to show newest messages first
+    const data = await person.find().sort({ createdAt: -1 });
+    
+    // Send the data back to the frontend dashboard
+    res.status(200).json(data);
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+// ===================================
+
+
+
 // here we export router to import it our main server.js(where every thing happens)file:-
 module.exports = router;
