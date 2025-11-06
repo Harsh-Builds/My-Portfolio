@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const person = require('../models/person'); // import our person model.
+const { jwtauthMiddleWare } = require('../jwt');
 
 // POST method route to add a person:-
 
