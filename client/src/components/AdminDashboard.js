@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'; // 1. IMPORT useState
 import { useNavigate } from 'react-router-dom';
 import api from '../api'; // 2. IMPORT your api instance
-// import './AdminDashboard.css'; // 3. (Optional) Add a CSS file for styling
+import '../AdminDashboard.css'; 
 
 function AdminDashboard() {
   const navigate = useNavigate();
