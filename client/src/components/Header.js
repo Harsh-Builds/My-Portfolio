@@ -56,12 +56,12 @@ export default function Header() {
        
         <li className="nav_item">
           <a href="#portfolio" onClick={closeMenu} className="nav_link">
-           <FontAwesomeIcon icon={faImage} className='nav_icon'/>Portfolio
+           <FontAwesomeIcon icon={faImage} className='nav_icon'/>Projects
           </a>
         </li>
         <li className="nav_item">
           <a href="#contact" onClick={closeMenu} className="nav_link">
-           <FontAwesomeIcon icon={faMessage}className='nav_icon' /> Contactme
+           <FontAwesomeIcon icon={faMessage}className='nav_icon' /> Contact Me
           </a>
         </li>
 

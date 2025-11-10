@@ -32,7 +32,7 @@ useEffect(() => {
     <>
       {/*==================== PORTFOLIO ====================*/}
       <section className="portfolio section" id="portfolio">
-        <h2 className="section_title">Portfolio</h2>
+        <h2 className="section_title">Projects</h2>
         <span className="section_subtitle">Most recent work</span>
 
         <div className="portfolio_container container swiper mySwiper">
