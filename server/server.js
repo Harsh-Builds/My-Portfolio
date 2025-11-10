@@ -33,6 +33,12 @@ app.use('/contact', personRoutes);
 const adminRoutes = require('../server/routes/admin');
 app.use('/admin', adminRoutes );
 
+// Import the new project routes
+const projectRoutes = require('../server/routes/projectRoute');
+
+// Use the routes
+// Any request to /api/projects will be handled by this file
+app.use('/api/projects', projectRoutes);
 
 // server is active or listen at this port or address.
 app.listen(PORT, ()=>{
