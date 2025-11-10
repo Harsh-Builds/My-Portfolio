@@ -7,7 +7,9 @@ require('dotenv').config();  // it is used for that, Node.js can load environmen
 
 // This replaces your second cors line
 app.use(cors({
-  origin: 'https://my-portfoliothis.vercel.app',
+  origin: ['https://my-portfoliothis.vercel.app',
+            'http://localhost:3001'
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow POST
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
