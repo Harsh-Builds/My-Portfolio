@@ -1,80 +1,138 @@
-import React, { useEffect, useState } from 'react'; // 1. IMPORT useState
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api'; // 2. IMPORT your api instance
-import '../AdminDashboard.css'; 
+import api from '../api'; // Your Axios instance
+import '../AdminDashboard.css'; // Your existing CSS file
 
 function AdminDashboard() {
   const navigate = useNavigate();
 
-  // 4. ADD NEW STATE for loading, errors, and storing contacts
+  // --- NEW STATE ---
+  // We need to store the projects and the new project form data
+  const [projects, setProjects] = useState([]);
+  const [newProject, setNewProject] = useState({
+    title: '',
+    description: '',
+    imageUrl: '',
+    liveLink: '',
+    githubLink: ''
+  });
+  const [submitMessage, setSubmitMessage] = useState(''); // For success/error messages
+
+  // --- EXISTING STATE ---
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // 5. This is your existing logout function (perfect, no changes)
+  // --- EXISTING LOGOUT FUNCTION (No changes) ---
   const handleLogout = () => {
-    localStorage.removeItem('admin_token'); // Clear the token
-    navigate('/admin'); // Go back to login
+    localStorage.removeItem('admin_token');
+    navigate('/admin');
   };
 
-  // 6. This useEffect hook now does BOTH protection AND data fetching
+  // --- UPDATED useEffect ---
+  // This now fetches BOTH contacts AND projects when the page loads
   useEffect(() => {
-    // Set the page title
     document.title = "Admin Dashboard";
+    const token = localStorage.getItem('admin_token');
 
-    // Define the async function to fetch data
-    const fetchContactData = async () => {
+    if (!token) {
+      handleLogout();
+      return;
+    }
+
+    const fetchData = async () => {
       try {
-        // Get the token from storage (this is your route protection)
-        const token = localStorage.getItem('admin_token');
-        if (!token) {
-          handleLogout(); // Log out if no token
-          return;
-        }
-
-        // Call your new protected backend endpoint
-        const response = await api.get('/contact/data', {
-          headers: {
-            'Authorization': `Bearer ${token}` // Send the token for auth!
-          }
+        setLoading(true);
+        
+        // 1. Get Contact Submissions (Private Route)
+        const contactResponse = await api.get('/contact/data', {
+          headers: { 'Authorization': `Bearer ${token}` }
         });
+        setContacts(contactResponse.data);
 
-        // Save the data in state
-        setContacts(response.data);
+        // 2. Get All Projects (Public Route)
+        // We can use the public route here, no token needed to just *see* projects
+        const projectResponse = await api.get('/api/projects');
+        setProjects(projectResponse.data);
+
         setLoading(false);
-
       } catch (err) {
         console.error('Error fetching data:', err);
-        // If the token is invalid or forbidden, log out
-        if (err.response && (err.response.status === 401 || err.response.status === 403)) {
-          setError('Your session has expired. Please log in again.');
-          handleLogout();
-        } else {
-          setError('Could not fetch data. Please try again later.');
-          setLoading(false);
-        }
+        setError('Could not fetch data. Please try again.');
+        setLoading(false);
       }
     };
 
-    // Call the function
-    fetchContactData();
-    
-  }, [navigate]); // The dependency array is correct
+    fetchData();
+  }, [navigate]); // navigate dependency is fine
 
-  
-  // 7. --- NEW RENDER LOGIC ---
-  // Show a loading message
+  // --- NEW FUNCTION: Handle changes in the "Add Project" form ---
+  const handleProjectFormChange = (e) => {
+    const { name, value } = e.target;
+    setNewProject(prevProject => ({
+      ...prevProject,
+      [name]: value
+    }));
+  };
+
+  // --- NEW FUNCTION: Handle submitting the "Add Project" form ---
+  const handleProjectSubmit = async (e) => {
+    e.preventDefault(); // Stop the page from reloading
+    setSubmitMessage(''); // Clear any old messages
+    const token = localStorage.getItem('admin_token');
+
+    try {
+      // Call the PRIVATE POST route to add a new project
+      const response = await api.post('/api/projects', newProject, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      // Add the new project to the *top* of our state list
+      setProjects([response.data, ...projects]);
+      setSubmitMessage('Project added successfully!');
+      
+      // Clear the form
+      setNewProject({ title: '', description: '', imageUrl: '', liveLink: '', githubLink: '' });
+
+    } catch (err) {
+      console.error('Error adding project:', err);
+      setSubmitMessage('Error adding project. Please try again.');
+    }
+  };
+
+  // --- NEW FUNCTION: Handle deleting a project ---
+  const handleProjectDelete = async (projectId) => {
+    // Show a confirmation dialog
+    if (!window.confirm('Are you sure you want to delete this project?')) {
+      return;
+    }
+
+    const token = localStorage.getItem('admin_token');
+    try {
+      // Call the PRIVATE DELETE route
+      await api.delete(`/api/projects/${projectId}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      // Update the state by filtering out the deleted project
+      setProjects(projects.filter(p => p._id !== projectId));
+
+    } catch (err) {
+      console.error('Error deleting project:', err);
+      alert('Error deleting project.'); // Use alert for delete errors
+    }
+  };
+
+
+  // --- RENDER LOGIC (No changes) ---
   if (loading) {
     return <div className="dashboard-loading">Loading dashboard...</div>;
   }
-
-  // Show an error message
   if (error) {
     return <div className="dashboard-error">{error}</div>;
   }
 
-  // 8. --- NEW JSX ---
-  // Show the dashboard with the data table
+  // --- UPDATED JSX ---
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
@@ -83,35 +141,105 @@ function AdminDashboard() {
           Logout
         </button>
       </header>
-      
-      <h3>Contact Form Submissions</h3>
-      
-      {contacts.length === 0 ? (
-        <p>No contact messages found.</p>
-      ) : (
-        <table className="contacts-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
-              <th>Received</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Loop over the contacts and create a row for each one */}
-            {contacts.map(contact => (
-              <tr key={contact._id}> 
-                <td>{contact.name}</td>
-                <td>{contact.email}</td>
-                <td>{contact.message}</td>
-                {/* Format the date to be more readable */}
-                <td>{new Date(contact.createdAt).toLocaleString()}</td>
+
+      {/* --- NEW Project Manager Section --- */}
+      <section className="project-manager">
+        <h2>Manage Projects</h2>
+        
+        {/* --- Add Project Form --- */}
+        <form onSubmit={handleProjectSubmit} className="project-form">
+          <h3>Add New Project</h3>
+          <input
+            type="text"
+            name="title"
+            placeholder="Project Title"
+            value={newProject.title}
+            onChange={handleProjectFormChange}
+            required
+          />
+          <textarea
+            name="description"
+            placeholder="Project Description"
+            value={newProject.description}
+            onChange={handleProjectFormChange}
+            required
+          />
+          <input
+            type="text"
+            name="imageUrl"
+            placeholder="Image URL (e.g., https://...)"
+            value={newProject.imageUrl}
+            onChange={handleProjectFormChange}
+            required
+          />
+          <input
+            type="text"
+            name="liveLink"
+            placeholder="Live Demo URL (e.g., https://...)"
+            value={newProject.liveLink}
+            onChange={handleProjectFormChange}
+          />
+          <input
+            type="text"
+            name="githubLink"
+            placeholder="GitHub URL (e.g., https://...)"
+            value={newProject.githubLink}
+            onChange={handleProjectFormChange}
+            required
+          />
+          <button type="submit" className="add-project-button">Add Project</button>
+          {submitMessage && <p className="submit-message">{submitMessage}</p>}
+        </form>
+
+        {/* --- Manage Projects List --- */}
+        <div className="project-list">
+          <h3>Your Current Projects</h3>
+          {projects.length === 0 ? (
+            <p>No projects found. Add one above!</p>
+          ) : (
+            projects.map(project => (
+              <div key={project._id} className="project-item">
+                <span>{project.title}</span>
+                <button 
+                  onClick={() => handleProjectDelete(project._id)} 
+                  className="delete-button"
+                >
+                  Delete
+                </button>
+              </div>
+            ))
+          )}
+        </div>
+      </section>
+
+      {/* --- EXISTING Contact Submissions Section (No changes) --- */}
+      <section className="contact-submissions">
+        <h3>Contact Form Submissions</h3>
+        {contacts.length === 0 ? (
+          <p>No contact messages found.</p>
+        ) : (
+          <table className="contacts-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Received</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {contacts.map(contact => (
+                <tr key={contact._id}> 
+                  <td>{contact.name}</td>
+                  <td>{contact.email}</td>
+                  <td>{contact.message}</td>
+                  <td>{new Date(contact.createdAt).toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
     </div>
   );
 }

@@ -869,7 +869,7 @@ textarea.contact_input {
 
   .about_container,
  
-  .portfolio_container,
+  /* .portfolio_container, */
   .contact_container,
   .footer_container{
     grid-template-columns: repeat(2, 1fr);
@@ -975,9 +975,9 @@ textarea.contact_input {
 .portfolio_img{
   width: 320px;
 }
-.portfolio_container{
+/* .portfolio_container{
   grid-template-columns: repeat(2 1fr);
-}
+} */
 
 .footer_container{
   grid-template-columns: repeat(3, 1fr);
@@ -1012,20 +1012,20 @@ textarea.contact_input {
   .home_social{
     transform: translateX(-6rem);
   }
-  .portfolio_content{
+  /* .portfolio_content{
     order: 1;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 5rem;
-  }
+  } */
 
   .swiper-portfolio-icon{
     font-size: 3.5rem;
   }
   .swiper-button-prev{
-    left: -3.5rem;
+    left: 0.5rem;
   }
   .swiper-button-next{
-    right: -3.5rem;
+    right: 0.5rem;
   }
   .contact_form{
     width: 460px;
@@ -1033,5 +1033,57 @@ textarea.contact_input {
 
   .contact_input{
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =================================== */
+/* === SWIPER PROJECT SLIDER FIX === */
+/* =================================== */
+
+/* 1. This container MUST hide the extra slides and scrollbar */
+.portfolio_container.swiper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 2. This forces EACH slide to be 100% wide */
+/* This is the fix for seeing two slides at once */
+.portfolio_container .swiper-slide {
+  width: 100%;
+  flex-shrink: 0; /* Stops the slide from shrinking */
+}
+
+/* 3. This tells your grid INSIDE the slide to behave */
+.portfolio_content.grid {
+  width: 100%; /* Make the grid fill the slide */
+  
+  /* Re-apply your grid styles here, but for mobile-first */
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* 4. This ensures your buttons stack nicely */
+.portfolio_buttons_container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 1rem; 
+  margin-top: 1rem; 
+}
+
+/* 5. On larger screens, make your grid 2 columns */
+/* This is the RIGHT way to do it */
+@media screen and (min-width: 768px) {
+  .portfolio_content.grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  .portfolio_img {
+    width: 320px; /* You can adjust this */
+  }
+
+  .portfolio_data {
+    order: 1; /* This moves the text to the right side */
   }
 }
