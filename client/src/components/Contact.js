@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faLocationDot, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { useState } from 'react'; 
+
 import { useForm } from "react-hook-form"
 
     export default function Contact() {
@@ -10,17 +10,17 @@ import { useForm } from "react-hook-form"
     register,
     handleSubmit,
     reset,
-    watch,
+ 
     formState: { errors, isSubmitting},
   } = useForm()
 
-  const delay = (d) =>{
-    return new Promise((resolve, reject)=>{
-      setTimeout(()=>{
-        resolve()
-      }, d*1000)
-    })
-  }
+  // const delay = (d) =>{
+  //   return new Promise((resolve, reject)=>{
+  //     setTimeout(()=>{
+  //       resolve()
+  //     }, d*1000)
+  //   })
+  // }
 
         const onSubmit = async (data) => {
 

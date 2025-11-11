@@ -28,7 +28,7 @@ export default function Header() {
 
    <header className="header" id="header">
   <nav className="nav container">
-    <a href="#" className="nav_logo">
+    <a href="/" className="nav_logo">
       HARSH
     </a>
     <div className={`nav_menu ${isOpen ? "show-menu" : ""}`} id="nav-menu" >

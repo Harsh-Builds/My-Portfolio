@@ -15,14 +15,14 @@ export default function Home() {
       <div className="home_social">
         <a
           href="https://www.linkedin.com/in/harsh-saini-1875ba339/"
-          target="_blank"
+         target="_blank" rel="noopener noreferrer"
           className="home_social-icon"
         >
           <FontAwesomeIcon icon={faLinkedin} size="2x"/>
         </a>
         <a
           href="https://github.com/Harsh-Builds"
-          target="_blank"
+         target="_blank" rel="noopener noreferrer"
           className="home_social-icon"
         >
         <FontAwesomeIcon icon={faGithub} size="2x" />

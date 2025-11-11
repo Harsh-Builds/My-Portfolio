@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api'; // Your Axios instance
 import '../AdminDashboard.css'; // Your existing CSS file
@@ -24,10 +24,10 @@ function AdminDashboard() {
   const [error, setError] = useState('');
 
   // --- EXISTING LOGOUT FUNCTION (No changes) ---
-  const handleLogout = () => {
-    localStorage.removeItem('admin_token');
-    navigate('/admin');
-  };
+  const handleLogout = useCallback(() => {
+  localStorage.removeItem('admin_token');
+  navigate('/admin');
+}, [navigate]); // Add [navigate] as its dependency
 
   // --- UPDATED useEffect ---
   // This now fetches BOTH contacts AND projects when the page loads
@@ -64,7 +64,7 @@ function AdminDashboard() {
     };
 
     fetchData();
-  }, [navigate]); // navigate dependency is fine
+  }, [navigate, handleLogout]); // navigate dependency is fine
 
   // --- NEW FUNCTION: Handle changes in the "Add Project" form ---
   const handleProjectFormChange = (e) => {
